@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= toShow.title %></title>
+  </head>
+  <body>
+    <div>
+      <h1><%= toShow.title %></h1>
+      <p><%= toShow.description %></p>
+      <p><strong>Price:</strong> &#x20A8;<%= toShow.price %></p>
+      <p>
+        <strong>Location:</strong> <%= toShow.location %>, <%= toShow.country %>
+      </p>
+      <img src="<%= toShow.image.url %>" alt="<%= toShow.image.filename %>" />
+    </div>
+    <a href="/listings">Back to Listings</aa>
+      <a href="/listings/<%= toShow._id %>/edit">
+        <button>Edit this listing</button>
+      </a>
+      <br><br>
+      <form action="/listings/<%=toShow._id%>?_method=DELETE" method="POST">
+        <button>Delete this listing</button>
+      </form>
+      </body>
+</html>

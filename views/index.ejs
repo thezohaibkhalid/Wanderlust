@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listings</title>
+  </head>
+  <body>
+    <h1>Create a new listing</h1>
+    <ul>
+      <% for (let listing of allListings) { %>
+      <li>
+        <a href="/listings/<%= listing._id %>">
+          <h2><%= listing.title %></h2>
+        </a>
+        <p><%= listing.description %></p>
+        <p>Price: <%= listing.price.toLocaleString("en-IN") %></p>
+        <p>Location: <%= listing.location %>, <%= listing.country %></p>
+        <img
+          src="<%= listing.image.url %>"
+          alt="<%= listing.image.filename %>"
+        />
+      </li>
+      <form action="/listings/new" method="GET">
+        <button>Create Listing</button>
+      </form>
+      <% } %>
+    </ul>
+  </body>
+</html>
